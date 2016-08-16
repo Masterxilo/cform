@@ -39,20 +39,22 @@ generate a CCall of that function with all the same
 
 Begin["`Private`"]
 
-CFunctionCallSelf[CFunction[t_, n_, args_]] := CCall[n,
+CFunctionCallSelf[CFunction[t_, n_, args_ : {___List}]] := CCall[n,
   Last /@ args
 ];
-CFunctionCallSelf[t_~Optional~"void", n_, args_] :=
+CFunctionCallSelf[t_~Optional~"void", n_, args_ : {___List}] :=
     CFunctionCallSelf@CFunction[t, n, args];
 
-SymbolicCForm[f_Symbol[args___]] :=
-    CCall[SymbolicCForm@f, SymbolicCForm /@ {args}];
+(* --- SymbolicCForm --- *)
+SymbolicCForm~SetAttributes~HoldAll
 
+(*Errors*)
+SymbolicCForm::unknown =
+    "SymbolicCForm does not understand ``";
 SymbolicCForm::nestedhead =
     "SymbolicCForm does not support nested heads in ``";
-
 SymbolicCForm::numerichead = "Numeric heads detected in ``, unsupported in SymbolicCForm.";
-SymbolicCForm[x:_?NumericQ[___]] := (Messages[SymbolicCForm::numerichead,
+SymbolicCForm[(x : _Real | _Integer | _Complex)[___]] := (Messages[SymbolicCForm::numerichead,
   x]; $Failed);
 
 SymbolicCForm[
@@ -60,8 +62,19 @@ SymbolicCForm[
   x]; $Failed);
 
 SymbolicCForm[atom_Complex] := CCall["Complex", ReIm@atom];
-SymbolicCForm[atom_Symbol] := ToString@atom;
-SymbolicCForm[atom_?AtomQ] := atom;
+SymbolicCForm[atom_Symbol] := SymbolName@Unevaluated@atom; (* todo: how much context info? -> none, not supported in C*)
+SymbolicCForm[atom_String] := CString@atom;
+SymbolicCForm[atom_Integer] := atom;
+SymbolicCForm[atom_Real] := atom;
+
+(* Iterate - Make sure we don't leak any evaluations *)
+SymbolicCForm[f_Symbol[args___]] :=
+    CCall[SymbolicCForm@f, SymbolicCForm /@ Unevaluated@{args}];
+
+
+SymbolicCForm[x_] := (Messages[SymbolicCForm::unknown,
+  x]; $Failed);
+
 
 
 ShiftUpConst[{"const", a_, b___}] := {a, "const", b};
