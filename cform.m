@@ -12,38 +12,37 @@
 (* :Keywords: *)
 (* :Discussion: *)
 
-BeginPackage["cform`", {"paul`", "SymbolicC`"}]
+BeginPackage["cform`", {"paul`", "SymbolicC`", "PackageDeveloper`"}]
 (* Exported symbols added here with SymbolName::usage *)
 
+PublicSymbols[
 cform
-$CFormDefines::usage = "gives a C code fragment of #includes, #defines and inline functions
-building up functionality beyond basic C, necessary to make cform expressions
-evaluate properly"
+,cformSymbolic
+,$CFormDefines
+  ,CanonicalizeSplitCArgument,CanonicalizeSplitCType,SymbolicCForm,CFunctionCallSelf
+  ];
 
-CanonicalizeSplitCArgument::usage = "Given a string describing a C type followed
-by a variable name, splits it into {{type__String}, identifier_String} and
-rearranges const in the type to always be on the right of whatever it qualifies."
 
-CanonicalizeSplitCType::usage = "Given a string describing a C type,
- splits it into {type__String} and
-rearranges const in the type to always be on the right of whatever it qualifies."
+Begin["`Private`"]
 
-SymbolicCForm::usage = "Like CForm, but only after ToCCodeString,
-and does not treat +, * etc specially for consistency and ease
-of parsing/modifying of the resulting code (just Define what the functions mean!)"
+DefinePublicFunction[
+CFunctionCallSelf[CFunction[t_, n_, args_ : {___List}]]
 
-CFunctionCallSelf::usage = "Given a function declaration,
+  ,"Given a function declaration,
 generate a CCall of that function with all the same
  argument names. Optionally constructs the CFunction for you,
  and you can leave out the return type."
 
-Begin["`Private`"]
-
-CFunctionCallSelf[CFunction[t_, n_, args_ : {___List}]] := CCall[n,
+  ,CCall[n,
   Last /@ args
+]
 ];
-CFunctionCallSelf[t_~Optional~"void", n_, args_ : {___List}] :=
-    CFunctionCallSelf@CFunction[t, n, args];
+
+DefinePublicFunction[
+CFunctionCallSelf[t_~Optional~"void", n_, args_ : {___List}]
+  ,"",
+    CFunctionCallSelf@CFunction[t, n, args]
+  ];
 
 (* --- SymbolicCForm --- *)
 SymbolicCForm~SetAttributes~HoldAll
@@ -57,9 +56,18 @@ SymbolicCForm::numerichead = "Numeric heads detected in ``, unsupported in Symbo
 SymbolicCForm[(x : _Real | _Integer | _Complex)[___]] := (Messages[SymbolicCForm::numerichead,
   x]; $Failed);
 
+
+DefinePublicFunction[
 SymbolicCForm[
-  x : _[___][___]] := (Messages[SymbolicCForm::nestedhead,
-  x]; $Failed);
+  x : _[___][___]]
+
+  ,"Like CForm, but only after ToCCodeString,
+  and does not treat +, * etc specially for consistency and ease
+of parsing/modifying of the resulting code (just Define what the functions mean!)"
+
+  ,(Messages[SymbolicCForm::nestedhead,
+  x]; $Failed)
+];
 
 SymbolicCForm[atom_Complex] := CCall["Complex", ReIm@atom];
 SymbolicCForm[atom_Symbol] := SymbolName@Unevaluated@atom; (* todo: how much context info? -> none, not supported in C*)
@@ -80,14 +88,35 @@ SymbolicCForm[x_] := (Messages[SymbolicCForm::unknown,
 ShiftUpConst[{"const", a_, b___}] := {a, "const", b};
 ShiftUpConst[x_] := x;
 
-CanonicalizeSplitCType[s_String] := ShiftUpConst[
+
+DefinePublicFunction[
+CanonicalizeSplitCType[s_String]
+
+  ,"Given a string describing a C type,
+  splits it into {type__String} and
+  rearranges const in the type to always be on the right of whatever it qualifies."
+
+
+
+  ,ShiftUpConst[
   StringTrim@StringSplit[s, WordBoundary] /. "" -> Nothing
 ]
+];
+
+
 CanonicalizeSplitCArgument[s_String] /; StringTrim@s === "..." = {{"..."},"..."};
 
-CanonicalizeSplitCArgument[s_String] := MostLast@ShiftUpConst[
+
+DefinePublicFunction[
+CanonicalizeSplitCArgument[s_String]
+  ,"Given a string describing a C type followed
+by a variable name, splits it into {{type__String}, identifier_String} and
+rearranges const in the type to always be on the right of whatever it qualifies."
+
+  ,MostLast@ShiftUpConst[
   StringTrim@StringSplit[s, WordBoundary] /. "" -> Nothing
 ]
+  ];
 
 
 DPrint[e___] := Null;
@@ -116,7 +145,12 @@ dropCContexts[cstr_String] :=
 
 dropCContexts@"hi_there_my(best_f)" == "my(f)"
 
+
 (* how to interpret replacements defined below*)
+$CFormDefines::usage = "gives a C code fragment of #includes, #defines and inline functions
+building up functionality beyond basic C, necessary to make cform expressions
+evaluate properly"
+
 $CFormDefines = "
 #include <algorithm>
 #include <math.h>
@@ -143,8 +177,15 @@ cform::numerichead = "Numeric heads detected in ``, unsupported in C.";
 cform::unknownSym = "Symbols unknown to C: `` detected in ``";
 
 (* TODO Simplify assuming all variables are real and all functions are real valued? *)
-cform[expr_, variableReplacements_List : {},
-  extraRules_List : {}] := Module[{
+
+
+DefinePublicFunction[
+cformSymbolic[expr_, variableReplacements_List : {},
+  extraRules_List : {}]
+
+  ,"C code evaluating this expression, as long as all variables are real valued and functions are simple"
+
+ , Module[{
   result = expr /. variableReplacements,
   allRules = Join[extraRules, {
     Sin[x_] :> sin[x],
@@ -203,9 +244,9 @@ cform[expr_, variableReplacements_List : {},
 
 
     , (*-- make CForm without any contexts_ -- *)
-    dropCContexts@ToString[result // CForm]
+    result // Evaluate // SymbolicCForm
 
-    , Which[
+    , (* --else there is SOMETHING wrong -- determine what *) Which[
 
       hasNested
       , Message[cform::nestedhead, result]
@@ -217,7 +258,19 @@ cform[expr_, variableReplacements_List : {},
       , Message[cform::unknownSym, FullName /@ Complement[symbols, knownSymbols], result]
     ]; $Failed
   ]
-]];
+]]
+
+];
+
+DefinePublicFunction[
+
+  cform[expr_, variableReplacements_List : {},extraRules_List : {}]
+
+  , "C code evaluating this expression, as long as all variables are real valued and functions are simple"
+
+  , dropCContexts[cformSymbolic[expr, variableReplacements, extraRules] // ToCCodeString]
+];
+
 
 End[] (* `Private` *)
 
