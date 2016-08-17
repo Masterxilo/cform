@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     27621,        730]
-NotebookOptionsPosition[     26305,        682]
-NotebookOutlinePosition[     26647,        697]
-CellTagsIndexPosition[     26604,        694]
+NotebookDataLength[     26836,        713]
+NotebookOptionsPosition[     25560,        666]
+NotebookOutlinePosition[     25902,        681]
+CellTagsIndexPosition[     25859,        678]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -62,30 +62,14 @@ Cell[BoxData[{
    3.678468741217249*^9}, 3.6784687765045757`*^9, {3.6784688748568783`*^9, 
    3.6784688771724916`*^9}}],
 
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"cform", "::", "shdw"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Symbol \
-\[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"cform\\\\\\\"\\\"}]\\)\[NoBreak] \
-appears in multiple contexts \[NoBreak]\\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\
-\"\\\\\\\"cform`\\\\\\\"\\\", \\\",\\\", \\\"\\\\\\\"Global`\\\\\\\"\\\"}], \
-\\\"}\\\"}]\\)\[NoBreak]; definitions in context \
-\[NoBreak]\\!\\(\\*RowBox[{\\\"\\\\\\\"cform`\\\\\\\"\\\"}]\\)\[NoBreak] may \
-shadow or be shadowed by other definitions. \\!\\(\\*ButtonBox[\\\"\
-\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/General/shdw\\\", ButtonNote -> \
-\\\"cform`cform::shdw\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.6784788016774344`*^9}],
-
-Cell[BoxData["\<\"sqrt(plus(sqr(abs(y)),sqr(abs(x(0)))))\"\>"], "Output",
+Cell[BoxData["\<\"sqrt(plus(sqr(abs(y)), sqr(abs(x(0)))))\"\>"], "Output",
  CellChangeTimes->{{3.6784679029020915`*^9, 3.678467923415101*^9}, {
    3.678468199975811*^9, 3.6784682160214143`*^9}, 3.6784684110598955`*^9, 
    3.6784685125845175`*^9, {3.6784686798801327`*^9, 3.6784687416863313`*^9}, 
    3.6784687767858152`*^9, {3.678468871809234*^9, 3.67846887800061*^9}, 
    3.6784697060669203`*^9, 3.678469877275774*^9, {3.67847054469176*^9, 
-   3.6784705466935997`*^9}, 3.678478801708681*^9}]
+   3.6784705466935997`*^9}, 3.678478801708681*^9, {3.6803757586629753`*^9, 
+   3.6803757801347637`*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -701,35 +685,34 @@ Cell[580, 22, 123, 1, 90, "Title"],
 Cell[706, 25, 279, 6, 68, "Text"],
 Cell[CellGroupData[{
 Cell[1010, 35, 1353, 27, 92, "Input"],
-Cell[2366, 64, 797, 15, 41, "Message"],
-Cell[3166, 81, 491, 6, 31, "Output"]
+Cell[2366, 64, 546, 7, 31, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3694, 92, 9459, 249, 332, "Input"],
-Cell[13156, 343, 3493, 78, 688, "Output"]
+Cell[2949, 76, 9459, 249, 312, "Input"],
+Cell[12411, 327, 3493, 78, 688, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[16686, 426, 1393, 38, 152, "Input"],
-Cell[18082, 466, 617, 13, 22, "Message"],
-Cell[18702, 481, 331, 4, 31, "Output"],
-Cell[19036, 487, 661, 14, 22, "Message"],
-Cell[19700, 503, 329, 4, 31, "Output"],
-Cell[20032, 509, 728, 15, 22, "Message"],
-Cell[20763, 526, 331, 4, 93, "Output"],
-Cell[21097, 532, 671, 14, 47, "Message"],
-Cell[21771, 548, 329, 4, 93, "Output"]
+Cell[15941, 410, 1393, 38, 152, "Input"],
+Cell[17337, 450, 617, 13, 22, "Message"],
+Cell[17957, 465, 331, 4, 31, "Output"],
+Cell[18291, 471, 661, 14, 22, "Message"],
+Cell[18955, 487, 329, 4, 31, "Output"],
+Cell[19287, 493, 728, 15, 22, "Message"],
+Cell[20018, 510, 331, 4, 93, "Output"],
+Cell[20352, 516, 671, 14, 47, "Message"],
+Cell[21026, 532, 329, 4, 93, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[22137, 557, 736, 21, 137, "Input"],
-Cell[22876, 580, 89, 1, 93, "Output"]
+Cell[21392, 541, 736, 21, 137, "Input"],
+Cell[22131, 564, 89, 1, 93, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23002, 586, 572, 16, 137, "Input"],
-Cell[23577, 604, 94, 1, 93, "Output"]
+Cell[22257, 570, 572, 16, 137, "Input"],
+Cell[22832, 588, 94, 1, 93, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23708, 610, 2434, 64, 457, "Input"],
-Cell[26145, 676, 132, 2, 93, "Output"]
+Cell[22963, 594, 2434, 64, 457, "Input"],
+Cell[25400, 660, 132, 2, 93, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
