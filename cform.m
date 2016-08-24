@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (* Mathematica Package *)
 (* Created by Mathematica Plugin for IntelliJ IDEA *)
 
@@ -20,6 +22,7 @@ cform
 ,cformSymbolic
 ,$CFormDefines
   ,CanonicalizeSplitCArgument,CanonicalizeSplitCType,SymbolicCForm,CFunctionCallSelf
+,$CFormDefinesCUDAFloat
   ];
 
 
@@ -123,6 +126,7 @@ DPrint[e___] := Null;
 (*SparseOptimization`Private`EnableDPrint[] enables redio debugging/logging*)
 EnableDPrint[] := DPrint[e___] := Print["cform`: ",e];
 DPrint~SetAttributes~HoldAllComplete;
+(*alternatively use ::trace Messages, or maybe Echo with labels?*)
 
 
 symbolicHead[x_Symbol] := x;
@@ -151,11 +155,13 @@ $CFormDefines::usage = "gives a C code fragment of #includes, #defines and inlin
 building up functionality beyond basic C, necessary to make cform expressions
 evaluate properly"
 
-$CFormDefines = "
-#include <algorithm>
+$CFormDefines = "#error use one of the specialized $CFormDefines"
+
+$CFormDefinesCUDAFloat = "
 #include <math.h>
+#define sqrt sqrtf
+#define pow powf
 #define rsqrt(x) (1. / sqrt((x)))
-inline double sqr(double x) {return x*x;}
 #define inv(x) (1. / (x))
 #define neg(x) (-(x))
 #define times(x,y) ((x)*(y))
@@ -168,8 +174,26 @@ inline double sqr(double x) {return x*x;}
 
 #define ifthenelse(test,a,b) ((test) ? (a) : (b))
 
-inline double max(int a, double b) { return std::max(double(a), b); }
-inline double max(double a, int b) { return std::max(a, double(b)); }
+template<typename T1, typename T2>
+inline
+#ifdef __CUDACC__
+__host__ __device__
+#endif
+float max(T1 a, T2 b) { return a > b ? a : b; }
+
+
+template<typename T1, typename T2>
+inline
+#ifdef __CUDACC__
+__host__ __device__
+#endif
+float min(T1 a, T2 b) { return a < b ? a : b; }
+
+inline
+#ifdef __CUDACC__
+__host__ __device__
+#endif
+float sqr(double x) { return x*x; }
 ";
 
 cform::nestedhead = "Nested heads detected in ``, unsupported in C.";
@@ -229,6 +253,9 @@ cformSymbolic[expr_, variableReplacements_List : {},
   ],
   hasNested = False, symbols, hasNumeric = False
 },
+  DPrint["expr: ", expr];
+  DPrint["variableReplacements: ",variableReplacements];
+  DPrint["extraRules: ", extraRules];
   DPrint@allRules
   ;DPrint["knownSymbols ", knownSymbols]
 

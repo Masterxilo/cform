@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    384520,       9397]
-NotebookOptionsPosition[    336276,       8371]
-NotebookOutlinePosition[    379653,       9241]
-CellTagsIndexPosition[    379610,       9238]
+NotebookDataLength[    393475,       9640]
+NotebookOptionsPosition[    344986,       8606]
+NotebookOutlinePosition[    388366,       9476]
+CellTagsIndexPosition[    388323,       9473]
 WindowTitle->cform.testing.nb
 WindowFrame->Normal*)
 
@@ -26,6 +26,241 @@ Cell[BoxData[{
  CellChangeTimes->{{3.6798401761720247`*^9, 3.6798401806993704`*^9}, {
   3.680278331247706*^9, 3.680278334035184*^9}},
  CellID->103826741],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cformSymbolic", "[", 
+  RowBox[{
+   RowBox[{"Norm", "[", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "y"}], "}"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"x", "\[Rule]", "x"}], ",", 
+     RowBox[{"y", "\[Rule]", "y"}]}], "}"}], ",", 
+   RowBox[{"{", "}"}]}], "]"}]], "VerificationTest",
+ CellChangeTimes->{3.6810223400671005`*^9},
+ CellID->2096118],
+
+Cell[BoxData[
+ RowBox[{"CCall", "[", 
+  RowBox[{"\"\<sqrt\>\"", ",", 
+   RowBox[{"{", 
+    RowBox[{"CCall", "[", 
+     RowBox[{"\"\<plus\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"CCall", "[", 
+         RowBox[{"\"\<sqr\>\"", ",", 
+          RowBox[{"{", 
+           RowBox[{"CCall", "[", 
+            RowBox[{"\"\<abs\>\"", ",", 
+             RowBox[{"{", "\"\<x\>\"", "}"}]}], "]"}], "}"}]}], "]"}], ",", 
+        RowBox[{"CCall", "[", 
+         RowBox[{"\"\<sqr\>\"", ",", 
+          RowBox[{"{", 
+           RowBox[{"CCall", "[", 
+            RowBox[{"\"\<abs\>\"", ",", 
+             RowBox[{"{", "\"\<y\>\"", "}"}]}], "]"}], "}"}]}], "]"}]}], 
+       "}"}]}], "]"}], "}"}]}], "]"}]], "ExpectedOutput",
+ CellChangeTimes->{3.681022342735006*^9},
+ CellID->327717155],
+
+Cell[BoxData[
+ PaneBox[
+  TagBox[GridBox[{
+     {
+      ButtonBox[
+       TagBox[
+        TooltipBox[
+         PaneSelectorBox[{False->
+          TagBox[GridBox[{
+             {
+              DynamicBox[FEPrivate`FrontEndResource["MUnitExpressions", "Add"],
+               ImageSizeCache->{16., {3., 9.}}], 
+              StyleBox[
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "MUnitStrings", "AddMessages-Label"],
+                ImageSizeCache->{83., {2., 8.}}], "ButtonText",
+               StripOnInput->False,
+               AdjustmentBoxOptions->{BoxBaselineShift->-50}]}
+            },
+            AutoDelete->False,
+            
+            GridBoxAlignment->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Center}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+           "Grid"], True->
+          TagBox[GridBox[{
+             {
+              DynamicBox[FEPrivate`FrontEndResource["MUnitExpressions", "Add"],
+               ImageSizeCache->{16., {3., 9.}}], 
+              StyleBox[
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "MUnitStrings", "AddMessages-Label"],
+                ImageSizeCache->{83., {2., 8.}}], "ButtonText",
+               StripOnInput->False,
+               LineColor->RGBColor[0.9059, 0.3451, 0.102],
+               FrontFaceColor->RGBColor[0.9059, 0.3451, 0.102],
+               BackFaceColor->RGBColor[0.9059, 0.3451, 0.102],
+               GraphicsColor->RGBColor[0.9059, 0.3451, 0.102],
+               FontColor->RGBColor[0.9059, 0.3451, 0.102]]}
+            },
+            AutoDelete->False,
+            
+            GridBoxAlignment->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Center}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+           "Grid"]}, Dynamic[
+           CurrentValue["MouseOver"]],
+          FrameMargins->0,
+          ImageSize->Automatic],
+         DynamicBox[
+          FEPrivate`FrontEndResource["MUnitStrings", "AddMessages-Tooltip"]],
+         TooltipDelay->0.5],
+        Annotation[#, 
+         Dynamic[
+          RawBoxes[
+           FEPrivate`FrontEndResource[
+           "MUnitStrings", "AddMessages-Tooltip"]]], "Tooltip"]& ],
+       Appearance->FEPrivate`FrontEndResource[
+        "MUnitExpressions", "ButtonAppearances"],
+       ButtonFunction:>
+        Block[{$ContextPath}, Needs["MUnit`"]; MUnit`addMessages[]],
+       Evaluator->Automatic,
+       FrameMargins->{{10, 10}, {0, 0}},
+       ImageSize->Automatic,
+       Method->"Queued"], 
+      TagBox[GridBox[{
+         {
+          ButtonBox[
+           TagBox[
+            TooltipBox[
+             PaneSelectorBox[{False->
+              TagBox[GridBox[{
+                 {
+                  
+                  DynamicBox[FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "Add"],
+                   ImageSizeCache->{16., {3., 9.}}], 
+                  StyleBox[
+                   
+                   DynamicBox[FEPrivate`FrontEndResource[
+                    "MUnitStrings", "AddOptions-Label"],
+                    ImageSizeCache->{68., {2., 8.}}], "ButtonText",
+                   StripOnInput->False,
+                   AdjustmentBoxOptions->{BoxBaselineShift->-50}]}
+                },
+                AutoDelete->False,
+                
+                GridBoxAlignment->{
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Center}}},
+                
+                GridBoxItemSize->{
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+               "Grid"], True->
+              TagBox[GridBox[{
+                 {
+                  
+                  DynamicBox[FEPrivate`FrontEndResource[
+                   "MUnitExpressions", "Add"],
+                   ImageSizeCache->{16., {3., 9.}}], 
+                  StyleBox[
+                   
+                   DynamicBox[FEPrivate`FrontEndResource[
+                    "MUnitStrings", "AddOptions-Label"],
+                    ImageSizeCache->{68., {2., 8.}}], "ButtonText",
+                   StripOnInput->False,
+                   LineColor->RGBColor[0.9059, 0.3451, 0.102],
+                   FrontFaceColor->RGBColor[0.9059, 0.3451, 0.102],
+                   BackFaceColor->RGBColor[0.9059, 0.3451, 0.102],
+                   GraphicsColor->RGBColor[0.9059, 0.3451, 0.102],
+                   FontColor->RGBColor[0.9059, 0.3451, 0.102]]}
+                },
+                AutoDelete->False,
+                
+                GridBoxAlignment->{
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Center}}},
+                
+                GridBoxItemSize->{
+                 "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+               "Grid"]}, Dynamic[
+               CurrentValue["MouseOver"]],
+              FrameMargins->0,
+              ImageSize->Automatic],
+             DynamicBox[
+              FEPrivate`FrontEndResource[
+              "MUnitStrings", "AddOptions-Tooltip"]],
+             TooltipDelay->0.5],
+            Annotation[#, 
+             Dynamic[
+              RawBoxes[
+               FEPrivate`FrontEndResource[
+               "MUnitStrings", "AddOptions-Tooltip"]]], "Tooltip"]& ],
+           
+           Appearance->FEPrivate`FrontEndResource[
+            "MUnitExpressions", "ButtonAppearances"],
+           
+           ButtonFunction:>
+            Block[{$ContextPath}, Needs["MUnit`"]; MUnit`addOptions[]],
+           Evaluator->Automatic,
+           FrameMargins->{{10, 10}, {0, 0}},
+           ImageSize->Automatic,
+           Method->"Queued"], 
+          ActionMenuBox[
+           ButtonBox["\<\"\"\>",
+            
+            Appearance->FEPrivate`FrontEndResource[
+             "MUnitExpressions", "ButtonAppearancesNoLeftBorder"],
+            ButtonFunction:>{},
+            ContentPadding->False,
+            Evaluator->None,
+            Method->"Preemptive"], {
+           
+           DynamicBox[FEPrivate`FrontEndResource[
+            "MUnitStrings", "MemoryConstraint-Label"]]:>
+           Block[{$ContextPath}, Needs["MUnit`"]; 
+            MUnit`InsertOptionRule["MemoryConstraint"]], 
+           DynamicBox[FEPrivate`FrontEndResource[
+            "MUnitStrings", "SameTest-Label"]]:>
+           Block[{$ContextPath}, Needs["MUnit`"]; 
+            MUnit`InsertOptionRule["SameTest"]], 
+           
+           DynamicBox[FEPrivate`FrontEndResource[
+            "MUnitStrings", "TestID-Label"]]:>
+           Block[{$ContextPath}, Needs["MUnit`"]; 
+            MUnit`InsertOptionRule["TestID"]], 
+           
+           DynamicBox[FEPrivate`FrontEndResource[
+            "MUnitStrings", "TimeConstraint-Label"]]:>
+           Block[{$ContextPath}, Needs["MUnit`"]; 
+            MUnit`InsertOptionRule["TimeConstraint"]]},
+           Appearance->None,
+           Method->"Queued"]}
+        },
+        AutoDelete->False,
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{0}}, "Rows" -> {{Automatic}}}],
+       "Grid"]}
+    },
+    AutoDelete->False,
+    GridBoxAlignment->{"Columns" -> {{Automatic}}, "Rows" -> {{Center}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{2}}},
+    GridBoxSpacings->{
+     "ColumnsIndexed" -> {2 -> 0.5, 3 -> 2, 4 -> 0.5}, 
+      "Rows" -> {{Automatic}}}],
+   "Grid"],
+  Alignment->{Left, Center},
+  ImageSize->Full]], "BottomCell",
+ CellID->199961]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -8370,7 +8605,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{772, 864},
-WindowMargins->{{Automatic, 366}, {9, Automatic}},
+WindowMargins->{{326, Automatic}, {-441, Automatic}},
 WindowTitle->"cform.testing.nb",
 DockedCells->{
   Cell[
@@ -9244,159 +9479,167 @@ Cell[588, 21, 273, 6, 52, "Input",
  InitializationCell->True,
  CellID->103826741],
 Cell[CellGroupData[{
-Cell[886, 31, 445, 13, 47, "VerificationTest",
+Cell[886, 31, 387, 12, 47, "VerificationTest",
+ CellID->2096118],
+Cell[1276, 45, 791, 22, 80, "ExpectedOutput",
+ CellID->327717155],
+Cell[2070, 69, 7489, 192, 41, "BottomCell",
+ CellID->199961]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9596, 266, 445, 13, 47, "VerificationTest",
  CellID->230850777],
-Cell[1334, 46, 868, 24, 80, "ExpectedOutput",
+Cell[10044, 281, 868, 24, 80, "ExpectedOutput",
  CellID->809006471],
-Cell[2205, 72, 865, 24, 80, "ActualOutput",
+Cell[10915, 307, 865, 24, 80, "ActualOutput",
  CellID->51470902],
-Cell[3073, 98, 10438, 244, 25, "TestFailure",
+Cell[11783, 333, 10438, 244, 25, "TestFailure",
  CellID->70008159],
-Cell[13514, 344, 14921, 371, 41, "BottomCell",
+Cell[22224, 579, 14921, 371, 41, "BottomCell",
  CellID->110672040]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[28472, 720, 412, 13, 47, "VerificationTest",
+Cell[37182, 955, 412, 13, 47, "VerificationTest",
  CellID->21054398],
-Cell[28887, 735, 104, 2, 39, "ExpectedOutput",
+Cell[37597, 970, 104, 2, 39, "ExpectedOutput",
  CellID->431105669],
-Cell[28994, 739, 102, 2, 39, "ActualOutput",
+Cell[37704, 974, 102, 2, 39, "ActualOutput",
  CellID->343282895],
-Cell[29099, 743, 10000, 238, 25, "TestFailure",
+Cell[37809, 978, 10000, 238, 25, "TestFailure",
  CellID->77715392],
-Cell[39102, 983, 14615, 366, 41, "BottomCell",
+Cell[47812, 1218, 14615, 366, 41, "BottomCell",
  CellID->210706425]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[53754, 1354, 268, 7, 47, "VerificationTest",
+Cell[62464, 1589, 268, 7, 47, "VerificationTest",
  CellID->213774966],
-Cell[54025, 1363, 138, 2, 39, "ExpectedOutput",
+Cell[62735, 1598, 138, 2, 39, "ExpectedOutput",
  CellID->54551385],
-Cell[54166, 1367, 9928, 237, 25, "TestSuccess",
+Cell[62876, 1602, 9928, 237, 25, "TestSuccess",
  CellID->67628939],
-Cell[64097, 1606, 11021, 277, 41, "BottomCell",
+Cell[72807, 1841, 11021, 277, 41, "BottomCell",
  CellID->238835842]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[75155, 1888, 157, 3, 47, "VerificationTest",
+Cell[83865, 2123, 157, 3, 47, "VerificationTest",
  CellID->109767656],
-Cell[75315, 1893, 106, 2, 39, "ExpectedOutput",
+Cell[84025, 2128, 106, 2, 39, "ExpectedOutput",
  CellID->162945957],
-Cell[75424, 1897, 9909, 237, 25, "TestSuccess",
+Cell[84134, 2132, 9909, 237, 25, "TestSuccess",
  CellID->298921816],
-Cell[85336, 2136, 11021, 277, 41, "BottomCell",
+Cell[94046, 2371, 11021, 277, 41, "BottomCell",
  CellID->837451491]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[96394, 2418, 157, 3, 47, "VerificationTest",
+Cell[105104, 2653, 157, 3, 47, "VerificationTest",
  CellID->156908523],
-Cell[96554, 2423, 106, 2, 39, "ExpectedOutput",
+Cell[105264, 2658, 106, 2, 39, "ExpectedOutput",
  CellID->537696757],
-Cell[96663, 2427, 157, 4, 38, "ExpectedMessage",
+Cell[105373, 2662, 157, 4, 38, "ExpectedMessage",
  CellID->67482815],
-Cell[96823, 2433, 298, 8, 57, "ActualMessage",
+Cell[105533, 2668, 298, 8, 57, "ActualMessage",
  CellID->66235566],
-Cell[97124, 2443, 13566, 317, 25, "TestMessageFailure",
+Cell[105834, 2678, 13566, 317, 25, "TestMessageFailure",
  CellID->219487104],
-Cell[110693, 2762, 14820, 373, 41, "BottomCell",
+Cell[119403, 2997, 14820, 373, 41, "BottomCell",
  CellID->147813515]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[125550, 3140, 234, 6, 47, "VerificationTest",
+Cell[134260, 3375, 234, 6, 47, "VerificationTest",
  CellID->14543079],
-Cell[125787, 3148, 132, 2, 39, "ExpectedOutput",
+Cell[134497, 3383, 132, 2, 39, "ExpectedOutput",
  CellID->357935163],
-Cell[125922, 3152, 9909, 237, 25, "TestSuccess",
+Cell[134632, 3387, 9909, 237, 25, "TestSuccess",
  CellID->269850601],
-Cell[135834, 3391, 11021, 277, 41, "BottomCell",
+Cell[144544, 3626, 11021, 277, 41, "BottomCell",
  CellID->520289933]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[146892, 3673, 265, 7, 47, "VerificationTest",
+Cell[155602, 3908, 265, 7, 47, "VerificationTest",
  CellID->407861622],
-Cell[147160, 3682, 106, 2, 39, "ExpectedOutput",
+Cell[155870, 3917, 106, 2, 39, "ExpectedOutput",
  CellID->229128299],
-Cell[147269, 3686, 159, 4, 38, "ExpectedMessage",
+Cell[155979, 3921, 159, 4, 38, "ExpectedMessage",
  CellID->20378741],
-Cell[147431, 3692, 299, 8, 57, "ActualMessage",
+Cell[156141, 3927, 299, 8, 57, "ActualMessage",
  CellID->500684112],
-Cell[147733, 3702, 13600, 317, 25, "TestMessageFailure",
+Cell[156443, 3937, 13600, 317, 25, "TestMessageFailure",
  CellID->4548684],
-Cell[161336, 4021, 15012, 377, 41, "BottomCell",
+Cell[170046, 4256, 15012, 377, 41, "BottomCell",
  CellID->43526361]
 }, Open  ]],
-Cell[176363, 4401, 924, 26, 72, "Input",
+Cell[185073, 4636, 924, 26, 72, "Input",
  CellID->623398359],
 Cell[CellGroupData[{
-Cell[177312, 4431, 765, 24, 68, "VerificationTest",
+Cell[186022, 4666, 765, 24, 68, "VerificationTest",
  CellID->571370576],
-Cell[178080, 4457, 199, 3, 60, "ExpectedOutput",
+Cell[186790, 4692, 199, 3, 60, "ExpectedOutput",
  CellID->280082410],
-Cell[178282, 4462, 10253, 241, 25, "TestSuccess",
+Cell[186992, 4697, 10253, 241, 25, "TestSuccess",
  CellID->246900266],
-Cell[188538, 4705, 11020, 277, 41, "BottomCell",
+Cell[197248, 4940, 11020, 277, 41, "BottomCell",
  CellID->79995864]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[199595, 4987, 493, 12, 88, "VerificationTest",
+Cell[208305, 5222, 493, 12, 88, "VerificationTest",
  CellID->416447386],
-Cell[200091, 5001, 102, 2, 39, "ExpectedOutput",
+Cell[208801, 5236, 102, 2, 39, "ExpectedOutput",
  CellID->8148088],
-Cell[200196, 5005, 87, 1, 39, "ActualOutput",
+Cell[208906, 5240, 87, 1, 39, "ActualOutput",
  CellID->647489851],
-Cell[200286, 5008, 10058, 239, 25, "TestFailure",
+Cell[208996, 5243, 10058, 239, 25, "TestFailure",
  CellID->17292376],
-Cell[210347, 5249, 14539, 364, 41, "BottomCell",
+Cell[219057, 5484, 14539, 364, 41, "BottomCell",
  CellID->171574782]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[224923, 5618, 1620, 46, 188, "VerificationTest",
+Cell[233633, 5853, 1620, 46, 188, "VerificationTest",
  CellID->175242231],
-Cell[226546, 5666, 223, 3, 80, "ExpectedOutput",
+Cell[235256, 5901, 223, 3, 80, "ExpectedOutput",
  CellID->486914871],
-Cell[226772, 5671, 10253, 241, 25, "TestSuccess",
+Cell[235482, 5906, 10253, 241, 25, "TestSuccess",
  CellID->545774537],
-Cell[237028, 5914, 11021, 277, 41, "BottomCell",
+Cell[245738, 6149, 11021, 277, 41, "BottomCell",
  CellID->177528433]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[248086, 6196, 280, 8, 47, "VerificationTest",
+Cell[256796, 6431, 280, 8, 47, "VerificationTest",
  CellID->142353663],
-Cell[248369, 6206, 121, 2, 39, "ExpectedOutput",
+Cell[257079, 6441, 121, 2, 39, "ExpectedOutput",
  CellID->461097433],
-Cell[248493, 6210, 9969, 237, 25, "TestSuccess",
+Cell[257203, 6445, 9969, 237, 25, "TestSuccess",
  CellID->310792835],
-Cell[258465, 6449, 11021, 277, 41, "BottomCell",
+Cell[267175, 6684, 11021, 277, 41, "BottomCell",
  CellID->398511902]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[269523, 6731, 267, 7, 47, "VerificationTest",
+Cell[278233, 6966, 267, 7, 47, "VerificationTest",
  CellID->197885279],
-Cell[269793, 6740, 218, 6, 39, "ExpectedOutput",
+Cell[278503, 6975, 218, 6, 39, "ExpectedOutput",
  CellID->61383843],
-Cell[270014, 6748, 10469, 243, 25, "TestSuccess",
+Cell[278724, 6983, 10469, 243, 25, "TestSuccess",
  CellID->468370862],
-Cell[280486, 6993, 11108, 278, 41, "BottomCell",
+Cell[289196, 7228, 11108, 278, 41, "BottomCell",
  CellID->95841827]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[291631, 7276, 205, 4, 47, "VerificationTest",
+Cell[300341, 7511, 205, 4, 47, "VerificationTest",
  CellID->217124270],
-Cell[291839, 7282, 232, 6, 39, "ExpectedOutput",
+Cell[300549, 7517, 232, 6, 39, "ExpectedOutput",
  CellID->186778826],
-Cell[292074, 7290, 10600, 247, 25, "TestSuccess",
+Cell[300784, 7525, 10600, 247, 25, "TestSuccess",
  CellID->13739269],
-Cell[302677, 7539, 11021, 277, 41, "BottomCell",
+Cell[311387, 7774, 11021, 277, 41, "BottomCell",
  CellID->448090481]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[313735, 7821, 237, 5, 47, "VerificationTest",
+Cell[322445, 8056, 237, 5, 47, "VerificationTest",
  CellID->100467073],
-Cell[313975, 7828, 294, 9, 39, "ExpectedOutput",
+Cell[322685, 8063, 294, 9, 39, "ExpectedOutput",
  CellID->231946435],
-Cell[314272, 7839, 10876, 249, 25, "TestSuccess",
+Cell[322982, 8074, 10876, 249, 25, "TestSuccess",
  CellID->55063754],
-Cell[325151, 8090, 11109, 278, 41, "BottomCell",
+Cell[333861, 8325, 11109, 278, 41, "BottomCell",
  CellID->292206807]
 }, Open  ]]
 }
